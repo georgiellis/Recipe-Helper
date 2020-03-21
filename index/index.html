@@ -2,23 +2,42 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Helper - About Us</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 <body>
-    <nav>
-        <div class="nav-wrapper">
-          <a href="#" class="brand-logo">Recipe Helper</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="../index/index.html">About Recipe Helper</a></li>
-            <li><a href="../Fridge_Content/Fridge_Content.html">My Fridge</a></li>
-            <li><a href="../Recipe-Finder/Recipe_Finder.html">Find A Recipe</a></li>
-            <li><a href="../Store_Finder/Store_Finder.html">Store Finder</a></li>
-          </ul>
-        </div>
-      </nav>
+  <nav>
+      <a href="#" class="brand-logo">What's for Dinner?</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="../index/index.html">About Recipe Helper</a></li>  
+        <li><a href="../Fridge_Content/Fridge_Content.html">What's in My Fridge</a></li>
+        <li><a href="../Recipe-Finder/Recipe_Finder.html">Recipe Search</a></li>
+        <li><a href="../Store_Finder/Store_Finder.html">Feeling Lazy?</a></li>
+      </ul>
+    </div>
+  </nav>
+
+    <form>
+    <div class ="row"></div>
+    <p><strong>What's in your fridge?</strong></p>
+    <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email" type="email" class="validate">
+              <label for="email">Ingredient</label>
+            </div>
+          </div>
+        </form>
+      </div>
+    <a class="waves-effect waves-light btn">Add</a>
+    </form>
+    <br><br>
+  
 
     <script src="script.js"></script>
 </body>
