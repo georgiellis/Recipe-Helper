@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,22 +20,28 @@
       </div>
     </nav>
 
-    <form>
-      <div class ="row"></div>
-      <p><strong>What's in your fridge?</strong></p>
-      <div class="row">
-          <form class="col s12">
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="email" type="email" class="validate">
-                <label for="email">Ingredient</label>
+    <div class="container">
+      <form>
+        <p><strong>What's in your fridge?</strong></p>
+        <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="ingredients" class="validate" placeholder="Ingredients">
+                </div>
               </div>
-            </div>
-          </form>
-        </div>
-      <a class="waves-effect waves-light btn">Add</a>
+            </form>
+          </div>
+        <button id="ingredientsInput" class="waves-effect waves-light btn">Add</button>
       </form>
-    
-    <script src="script.js"></script>
+
+      <h4 class="push-s7">Whats in my Fridge?</h4>
+      
+      <ul id="listIngredients" class="collection with-header">
+      </ul>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="Fridge.js"></script>
 </body>
 </html>
