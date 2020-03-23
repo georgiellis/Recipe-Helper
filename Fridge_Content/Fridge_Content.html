@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +20,28 @@
       </div>
     </nav>
 
-    <script src="script.js"></script>
+    <div class="container">
+      <form>
+        <p><strong>What's in your fridge?</strong></p>
+        <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="ingredients" class="validate" placeholder="Ingredients">
+                </div>
+              </div>
+            </form>
+          </div>
+        <button id="ingredientsInput" class="waves-effect waves-light btn">Add</button>
+      </form>
+
+      <h4 class="push-s7">Whats in my Fridge?</h4>
+      
+      <ul id="listIngredients" class="collection with-header">
+      </ul>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="Fridge.js"></script>
 </body>
 </html>
