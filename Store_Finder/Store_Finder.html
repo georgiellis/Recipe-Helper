@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="styles.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe Helper - Find a Store</title>
@@ -19,7 +18,32 @@
       </div>
     </nav>
 
+    <div class="wrapper">
+      <h1>Restaurant Search</h1>
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="input_text" type="text" data-length="10">
+                <label for="input_text">Search for a Restaurant</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="textarea2" class="materialize-textarea" data-length="120"></textarea>
+                <label for="textarea2">City</label>
+              </div>
+            </div>
+            <a class="waves-effect waves-light btn">Submit</a>
+          </form>
+        </div>
+      <div class="row">
+        <section id="restaurant-results">
+        </section>
+      </div>
+  </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <script src="Store.js"></script>
 </body>
 </html>
