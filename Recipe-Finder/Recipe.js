@@ -1,12 +1,22 @@
+// fridge content from local storage
+var fridgeContent = localStorage.getItem("Ingredients");
+
+if (fridgeContent === null) {
+    alert("please add items to your fridge via the fridge content tab");
+};
+
+// quick references for elements
 var searchBtn = document.getElementById("search-btn");
 var recipeResult = document.getElementById("recipe-result");
 
+// when the search button is clicked
 searchBtn.addEventListener("click", function () {
     var searchValue = document.getElementById("city-search").value;
     getRecipe(searchValue)
     console.log("search value: " + searchValue);
 })
 
+// get recipe function
 function getRecipe(searchValue) {
     $.ajax({
         type: "GET",
