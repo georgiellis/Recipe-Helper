@@ -1,5 +1,5 @@
 // fridge content from local storage
-var fridgeContent = localStorage.getItem("Ingredients");
+var fridgeContent = JSON.parse(localStorage.getItem("Ingredients"));
 
 if (fridgeContent === null) {
     alert("please add items to your fridge via the fridge content tab");
