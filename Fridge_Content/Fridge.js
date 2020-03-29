@@ -8,9 +8,12 @@ if (localStorage.getItem("Ingredients") !== null) {
 
 // renders the elements
 function RenderElements() {
+    
     $("#listIngredients").empty();
+
     for(i = 0; i < ingredients.length; i++) {
         var ingredient = ingredients[i];
+
         //creates necessary elements
         var li = $("<li>");
         var div = $("<div>");
@@ -20,6 +23,7 @@ function RenderElements() {
         a.addClass("secondary-content waves-effect waves-light removeBtn");
         li.addClass("collection-item");
         a.attr("id", ingredient);
+
         // sets text of elements
         a.text("Remove");
         div.text(ingredient);
@@ -36,8 +40,10 @@ function RenderElements() {
 //when the add button is pushed
 $("#ingredientsInput").on("click", function() {
     var ingredient = $("#ingredients").val();
+    if (ingredient === "") {
+    }
     // if the ingredient is already in the array
-    if(ingredients.indexOf(ingredient) !== -1) {
+    else if (ingredients.indexOf(ingredient) !== -1) {
         //alert("") <---- need to use modal window
     } else {
         var ingredient = $("#ingredients").val();
