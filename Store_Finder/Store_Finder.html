@@ -23,22 +23,31 @@
         <div class="row">
           <div class="col s12">
             <div class="row">
-              <div class="input-field col s6">
-                <textarea id="Restaurant" class="materialize-textarea" data-length="10" placeholder="Search for a Restaurant" autocomplete="off"></textarea>
-              </div>
-            </div>
-            <div class="row">
               <div class="input-field col s12">
-                <textarea id="City" class="materialize-textarea" data-length="120" placeholder="City" autocomplete="off"></textarea>
+                <textarea id="restaurants" class="materialize-textarea" data-length="120" placeholder="City" autocomplete="off"></textarea>
               </div>
             </div>
-            <a class="waves-effect waves-light btn">Submit</a>
+            <a class="waves-effect waves-light btn" id="findRestaurants">Submit</a>
           </div>
         </div>
-      <div class="row">
-        <section id="restaurant-results">
-        </section>
+        <div class="panel-body">
+          <table class="table table-hover" id='restaurant-table'>
+              <thead>
+                  <tr>
+                      <th>Name</th>
+                      <th>Location</th>
+                      <th>Cuisine</th>
+                      <th>User Rating</th>
+                      <th>Phone Number</th>
+                  </tr>
+              </thead>
+              <tbody>
+              </tbody>
+          </table>
       </div>
+  </div>
+
+  <br>
   </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
