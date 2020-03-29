@@ -19,45 +19,63 @@ function getRecipe(searchValue) {
                 resultDiv.classList.add("result-div-styles", "row")
 
                 // call title
+                var recipeInfoDiv = document.createElement("div")
+                recipeInfoDiv.classList.add("col", 's10')
+
                 var recipeTitleEl = document.createElement("h5");
                 var resultTitle = data.results[i].title;
                 recipeTitleEl.append(resultTitle)
+                recipeInfoDiv.append(recipeTitleEl)
+
+                    //create div for subheadings
+                    var subheadingDiv = document.createElement("div");
+                    subheadingDiv.classList.add("subheadingdiv-style")
+                    recipeInfoDiv.append(subheadingDiv)
+
 
                 //call prep time
                 var resultPrepTime = data.results[i].preparationMinutes;
                 var prepTimeEl = document.createElement("p");
-                prepTimeEl.append("Preparation time: " + resultPrepTime + " minutes")
+                prepTimeEl.classList.add("text-preptime")
+                prepTimeEl.append("Preparation time: " + resultPrepTime + " minutes ")
+                subheadingDiv.append(prepTimeEl)
 
                 //call cooking time
                 var resultCookingTime = data.results[i].cookingMinutes;
                 var cookingTimeEl = document.createElement("p");
-                cookingTimeEl.append("Cooking time: " + resultCookingTime + " minutes")
+                cookingTimeEl.classList.add("text-cookingtime")
+                cookingTimeEl.append("Cooking time: " + resultCookingTime + " minutes ")
+                subheadingDiv.append(cookingTimeEl)
 
                 //call serving size 
                 var resultServingSize = data.results[i].servings;
                 var servingSizeEl = document.createElement("p");
-                servingSizeEl.append("Serving Size: " + resultServingSize)
+                servingSizeEl.classList.add("text-servingsize")
+                servingSizeEl.append("Serving Size: " + resultServingSize + " ")
+                subheadingDiv.append(servingSizeEl)
 
                 //call image
+                var imgInfoDiv = document.createElement("div")
+                imgInfoDiv.classList.add("col", 's2')
+
                 var recipeImg = document.createElement("img")
                 recipeImgLink = data.results[i].image;
                 recipeClass = "." + data.results[i].id;
                 recipeImg.classList.add(recipeClass, "recipeImgStyles");
                 recipeImg.setAttribute('src', recipeImgLink)
+                imgInfoDiv.append(recipeImg)
 
 
                 //append 
-                recipeResult.append(resultDiv)
-                resultDiv.append(recipeImg)
-                resultDiv.append(recipeTitleEl)
-                resultDiv.append(cookingTimeEl)
-                resultDiv.append(prepTimeEl)
-                resultDiv.append(servingSizeEl)
+                 recipeResult.append(resultDiv)
+                 resultDiv.append(imgInfoDiv)
+                 resultDiv.append(recipeInfoDiv)
+
 
                 //call ingredients
+                var ingredientDiv = document.createElement("div");
                 for (j = 0; j < data.results[i].missedIngredients.length; j++) {
                     var ingredientName = data.results[i].missedIngredients[j].name
-                    var ingredientDiv = document.createElement("div");
 
                     var ingredientEl = document.createElement("p");
                     ingredientEl.append(ingredientName)

@@ -1,0 +1,22 @@
+/*Recipe Search Page Styles */
+.search-body {
+    width: 80%;
+    margin: auto;
+}
+
+.text-preptime {
+    float: left;
+}
+.text-cookingTime {
+    float: center;
+}
+.text-servingsize {
+    float: right;
+}
+.subheadingdiv-style {
+    display: flex;
+}
+    /*recipe search image style */
+.recipeImgStyles {
+    width: 100%;
+}
