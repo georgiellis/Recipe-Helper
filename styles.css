@@ -1,14 +1,24 @@
 /*Recipe Search Page Styles */
+.result-div-styles {
+border: 1px solid black;
+}
+
 .search-body {
     width: 80%;
     margin: auto;
 }
 
+.ingredient-div-style {
+    padding-top: 10px;
+    column-count: 3;
+}
 .text-preptime {
     float: left;
 }
-.text-cookingTime {
+.text-cookingtime {
     float: center;
+    padding-right: 15%;
+    padding-left: 15%;
 }
 .text-servingsize {
     float: right;
@@ -18,5 +28,7 @@
 }
     /*recipe search image style */
 .recipeImgStyles {
+    border-radius: 15px;
+    margin-top: 25%;
     width: 100%;
 }

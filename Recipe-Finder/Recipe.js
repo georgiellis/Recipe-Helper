@@ -90,6 +90,9 @@ function getRecipe(searchValue) {
 
                 //call ingredients
                 var ingredientDiv = document.createElement("div");
+                ingredientDiv.classList.add("ingredient-div-style")
+
+
                 for (j = 0; j < data.results[i].missedIngredients.length; j++) {
                     var ingredientName = data.results[i].missedIngredients[j].name
 
@@ -98,24 +101,10 @@ function getRecipe(searchValue) {
                     console.log(data.results[i].missedIngredients[j].name);
 
                     ingredientDiv.append(ingredientEl)
-                    resultDiv.append(ingredientDiv)
+                    recipeInfoDiv.append(ingredientDiv)
                 }
 
             }
-
-
-// get recipe function
-function getRecipe(searchValue) {
-    $.ajax({
-        type: "GET",
-        url: "https://api.spoonacular.com/recipes/search?query=" + searchValue + "&number=6&apiKey=6700e89d83964e28b700a8b597b8123c",
-        dataType: "json",
-        success: function (data) {
-            var result = data.results[0].title
-            recipeResult.append(result)
-
-            console.log(result);
-
 
         }
     })
