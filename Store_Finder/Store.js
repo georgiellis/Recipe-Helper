@@ -27,7 +27,7 @@ function findLocation() {
     
         //second call to get the actual info that I want using Zomato ID
         var searchID = response.location_suggestions[0].id;
-        var queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + searchID;
+        var queryURL = "https://developers.zomato.com/api/v2.1/search?entity_id=" + searchID + "&entity_type=city";
         $.ajax({
             url: queryURL,
             method: "GET",
@@ -36,13 +36,16 @@ function findLocation() {
         })
         .then(function (response2) {
 
+            $("#restaurant-table > tbody").empty();
+
+            console.log(response2)
+
             //Code Sam moved
           // create for loop to loop through each of the restaurants while i is less than the number of results or 10
           for (i = 0; i < response2.restaurants.length || i < 10 ; i++) {
             console.log(response2.restaurants[i].restaurant);
             var name = response2.restaurants[i].restaurant.name;
             var location = response2.restaurants[i].restaurant.location.address;
-            var pics = response2.restaurants[i].restaurant.photos;
             var cuisine = response2.restaurants[i].restaurant.cuisines;
             var userRating = response2.restaurants[i].restaurant.user_rating.aggregate_rating;
             var phoneNumber = response2.restaurants[i].restaurant.phone_numbers;
@@ -74,6 +77,8 @@ var getRestaurant = function() {
 
     var queryURL = "https://developers.zomato.com/api/v2.1/cities?q="+ locationInput;
 
+    console.log(queryURL)
+    
     $.ajax({
         url: queryURL,
         method: "GET",
