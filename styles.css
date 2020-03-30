@@ -1,4 +1,8 @@
 /*Recipe Search Page Styles */
+.search-intro {
+text-align: center;
+}
+
 .result-div-styles {
 border: 1px solid black;
 margin-bottom: 0 !important;

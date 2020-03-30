@@ -4,21 +4,59 @@ var recipeResult = document.getElementById("recipe-result");
 
 
 // fridge content from local storage
-var fridgeContent = JSON.parse(localStorage.getItem("Ingredients"));
+var localIngredients = JSON.parse(localStorage.getItem("Ingredients"));
 
-if (fridgeContent === null) {
+if (localIngredients === null) {
     alert("please add items to your fridge via the fridge content tab");
 };
+
+function RenderElements() {
+    
+    //$("#listIngredients").empty();
+
+    for(i = 0; i < localIngredients.length; i++) {
+        var ingredient = localIngredients[i];
+
+        //creates necessary elements
+        var li = $("<li>");
+        var div = $("<div>");
+        var a = $("<a>");
+
+        // adds necessary classes and ids
+        a.addClass("secondary-content waves-effect waves-light addSearchBtn");
+        li.addClass("collection-item");
+        a.attr("id", ingredient);
+
+        // sets text of elements
+        a.text("Add to search");
+        div.text(ingredient);
+
+        // appends elements
+         div.append(a);
+         li.append(div);
+
+        // sets text to input
+        $("#listIngredients").append(li);
+    }
+}
 
 // quick references for elements
 var searchBtn = document.getElementById("search-btn");
 var recipeResult = document.getElementById("recipe-result");
 
+//call renderElements
+$(document).on("click", ".addSearchBtn", function() { 
+    var searchValue = document.getElementById("recipe-search").value;
+    searchValue.value = searchValue.value + "sddsf";
+})
+
+
+
 // when the search button is clicked
 
 searchBtn.addEventListener("click", function () {
     $("#recipe-result").empty();
-    var searchValue = document.getElementById("city-search").value;
+    var searchValue = document.getElementById("recipe-search").value;
     getRecipe(searchValue)
     console.log("search value: " + searchValue);
 })
@@ -28,7 +66,7 @@ searchBtn.addEventListener("click", function () {
 function getRecipe(searchValue) {
     $.ajax({
         type: "GET",
-        url: "https://api.spoonacular.com/recipes/complexSearch?query=" + searchValue + "&addRecipeInformation=True&fillIngredients=True&number=2&apiKey=316e271bb0b045a7a09d60ffc6d3c9e7",
+        url: "https://api.spoonacular.com/recipes/complexSearch?query=" + searchValue + "&addRecipeInformation=True&fillIngredients=True&number=8&apiKey=316e271bb0b045a7a09d60ffc6d3c9e7",
         dataType: "json",
         success: function (data) {
             for (i = 0; i < data.results.length; i++) {
@@ -113,18 +151,16 @@ function getRecipe(searchValue) {
                     ingredientDiv.append(ingredientEl)
                     recipeInfoDiv.append(ingredientDiv)
 
-                    var localIngredients = JSON.parse(window.localStorage.getItem('Ingredients'));
+                    //var localIngredients = JSON.parse(window.localStorage.getItem('Ingredients'));
                     for (l = 0; l < localIngredients.length; l++) {
 
-                        
-                        
                         if (ingredientName === localIngredients[l]) {
-                            var something = document.getElementById(ingredientName)
-                            console.log(something)
-                            something.classList.add("hasIngredient")
-                            console.log("have " + ingredientName);
+                            var ingName = document.getElementById(ingredientName)
+                            console.log(ingName)
+                            ingName.classList.add("hasIngredient")
+                            console.log("have " + ingredientName)
                         } else {
-                            console.log("dont have " + ingredientName);
+                            console.log("dont have " + ingredientName)
                         }
                     }
                     

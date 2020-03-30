@@ -1,33 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="../styles.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recipe Helper - Find a Recipe</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-</head>
-<body >
-    <nav>
-        <a href="#" class="brand-logo">What's for Dinner?</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a href="../index/index.html">About Recipe Helper</a></li>  
-          <li><a href="../Fridge_Content/Fridge_Content.html">What's in My Fridge</a></li>
-          <li><a href="../Recipe-Finder/Recipe_Finder.html">Recipe Search</a></li>
-          <li><a href="../Store_Finder/Store_Finder.html">Feeling Lazy?</a></li>
-        </ul>
-      </div>
-    </nav>
-    <main class="search-body">
-      <section class="row search-row">
-        <input class="form-control mr-sm-2 w-75" type="search" placeholder="Search" aria-label="Search" id="city-search">
-        <button class="btn btn-search my-2 my-sm-0" type="submit" id="search-btn">Search</button>
-        <article>
-          <p id="recipe-result"></p>
-        </article>
-    </main>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="Recipe.js"></script>
+<head>
+  <link rel="stylesheet" href="../styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe Helper - Find a Recipe</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+</head>
+
+<body>
+  <nav>
+    <a href="#" class="brand-logo">What's for Dinner?</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="../index/index.html">About Recipe Helper</a></li>
+      <li><a href="../Fridge_Content/Fridge_Content.html">What's in My Fridge</a></li>
+      <li><a href="../Recipe-Finder/Recipe_Finder.html">Recipe Search</a></li>
+      <li><a href="../Store_Finder/Store_Finder.html">Feeling Lazy?</a></li>
+    </ul>
+    </div>
+  </nav>
+  <!--
+  <section>
+    <div class="container">
+      <h4 class="push-s7">Whats in my Fridge?</h4>
+      <ul id="listIngredients" class="collection with-header">
+      </ul>
+    </div>
+  </section>
+  -->
+  <main class="search-body">
+    <section class="search-intro">
+      <h3>Recipe Search</h3>
+      <p>to search for a recipe from ingredients, enter ingredients into the search box and you will be presented with 8 recipes using your chosen ingredients, separating each ingredient with a comma.</br> 
+        if a recipes ingredient is green, that means you have that ingredient in your fridge!</p>
+      <p>Once youve found a recipe you like, click the "view recipe" button to see the recipe method</p>
+    </section>
+    <section class="row search-row">
+      <input class="form-control mr-sm-2 w-75" type="search" placeholder="Search" aria-label="Search" id="recipe-search">
+      <button class="btn btn-search my-2 my-sm-0" type="submit" id="search-btn">Search</button>
+      <article>
+        <p id="recipe-result">
+          <!--output here -->
+        </p>
+      </article>
+  </main>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="Recipe.js"></script>
 </body>
+
 </html>
