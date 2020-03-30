@@ -17,6 +17,7 @@ var recipeResult = document.getElementById("recipe-result");
 // when the search button is clicked
 
 searchBtn.addEventListener("click", function () {
+    $("#recipe-result").empty();
     var searchValue = document.getElementById("city-search").value;
     getRecipe(searchValue)
     console.log("search value: " + searchValue);
@@ -45,10 +46,10 @@ function getRecipe(searchValue) {
                 recipeTitleEl.append(resultTitle)
                 recipeInfoDiv.append(recipeTitleEl)
 
-                    //create div for subheadings
-                    var subheadingDiv = document.createElement("div");
-                    subheadingDiv.classList.add("subheadingdiv-style")
-                    recipeInfoDiv.append(subheadingDiv)
+                //create div for subheadings
+                var subheadingDiv = document.createElement("div");
+                subheadingDiv.classList.add("subheadingdiv-style")
+                recipeInfoDiv.append(subheadingDiv)
 
 
                 //call prep time
@@ -85,9 +86,9 @@ function getRecipe(searchValue) {
 
 
                 //append 
-                 recipeResult.append(resultDiv)
-                 resultDiv.append(imgInfoDiv)
-                 resultDiv.append(recipeInfoDiv)
+                recipeResult.append(resultDiv)
+                resultDiv.append(imgInfoDiv)
+                resultDiv.append(recipeInfoDiv)
 
 
                 //call ingredients
@@ -106,23 +107,46 @@ function getRecipe(searchValue) {
 
 
                     var ingredientEl = document.createElement("p");
-                    ingredientEl.append(ingredientAmount + " " +ingredientName)
+                    ingredientEl.append(ingredientAmount + " " + ingredientName)
                     ingredientDiv.append(ingredientEl)
                     recipeInfoDiv.append(ingredientDiv)
                 }
 
+                //recipe method button and unhide on click
+                var recipeDiv = document.createElement("div");
+                recipeDiv.classList.add("method-style")
+
+                var showRecipeBtn = document.createElement("button");
+                showRecipeBtn.classList.add("waves-effect",  "waves-light",  "btn", "btn-recipe")
+                $(showRecipeBtn).attr("id", "button" + i);
+                showRecipeBtn.textContent = "View Recipe";
+
+                recipeDiv.append(showRecipeBtn)
+                recipeResult.append(recipeDiv)
+
+
+
                 //Get Recipe Method
                 var instructionDiv = document.createElement("div")
                 instructionDiv.classList.add("instruction-div-styles", "row", "hide")
+                $(instructionDiv).attr("id", "button" + i + "method");
                 recipeResult.append(instructionDiv)
 
 
                 for (m = 0; m < data.results[i].analyzedInstructions[0].steps.length; m++) {
                     var instructP = document.createElement("p")
 
-                    instructP.textContent = "step " + m +": " + data.results[i].analyzedInstructions[0].steps[m].step
+                    instructP.textContent = "step " + m + ": " + data.results[i].analyzedInstructions[0].steps[m].step
                     instructionDiv.append(instructP);
+                    recipeDiv.append(instructionDiv);
+                    
                 }
+
+                $(".btn-recipe").on("click", function() {
+                    var btnId = document.getElementById(this.id + "method");
+                        btnId.classList.remove("hide")
+                })
+
 
 
             }
