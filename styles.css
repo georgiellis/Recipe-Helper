@@ -9,6 +9,7 @@ border: 1px solid black;
 }
 
 .ingredient-div-style {
+    background-color: lightgrey;
     padding-top: 10px;
     column-count: 3;
 }
@@ -29,6 +30,9 @@ border: 1px solid black;
     /*recipe search image style */
 .recipeImgStyles {
     border-radius: 15px;
-    margin-top: 25%;
+    margin-top: 20px;
     width: 100%;
+}
+.hide {
+    display:none;
 }

@@ -30,6 +30,8 @@ function getRecipe(searchValue) {
         dataType: "json",
         success: function (data) {
             for (i = 0; i < data.results.length; i++) {
+
+                console.log(data.results[i]);
                 //create div to store results
                 var resultDiv = document.createElement("div");
                 resultDiv.classList.add("result-div-styles", "row")
@@ -93,16 +95,35 @@ function getRecipe(searchValue) {
                 ingredientDiv.classList.add("ingredient-div-style")
 
 
+                var ing = document.createElement("p")
+                ing.textContent = "Ingredients: ";
+                recipeInfoDiv.append(ing)
+
+
                 for (j = 0; j < data.results[i].missedIngredients.length; j++) {
                     var ingredientName = data.results[i].missedIngredients[j].name
+                    var ingredientAmount = data.results[i].missedIngredients[j].amount + " " + data.results[i].missedIngredients[j].unitShort
+
 
                     var ingredientEl = document.createElement("p");
-                    ingredientEl.append(ingredientName)
-                    console.log(data.results[i].missedIngredients[j].name);
-
+                    ingredientEl.append(ingredientAmount + " " +ingredientName)
                     ingredientDiv.append(ingredientEl)
                     recipeInfoDiv.append(ingredientDiv)
                 }
+
+                //Get Recipe Method
+                var instructionDiv = document.createElement("div")
+                instructionDiv.classList.add("instruction-div-styles", "row", "hide")
+                recipeResult.append(instructionDiv)
+
+
+                for (m = 0; m < data.results[i].analyzedInstructions[0].steps.length; m++) {
+                    var instructP = document.createElement("p")
+
+                    instructP.textContent = "step " + m +": " + data.results[i].analyzedInstructions[0].steps[m].step
+                    instructionDiv.append(instructP);
+                }
+
 
             }
 
