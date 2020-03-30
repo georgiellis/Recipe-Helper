@@ -22,12 +22,13 @@ searchBtn.addEventListener("click", function () {
     getRecipe(searchValue)
     console.log("search value: " + searchValue);
 })
-
+    //key one: 6700e89d83964e28b700a8b597b8123c
+    //key two: 316e271bb0b045a7a09d60ffc6d3c9e7
 
 function getRecipe(searchValue) {
     $.ajax({
         type: "GET",
-        url: "https://api.spoonacular.com/recipes/complexSearch?query=" + searchValue + "&addRecipeInformation=True&fillIngredients=True&number=2&apiKey=6700e89d83964e28b700a8b597b8123c",
+        url: "https://api.spoonacular.com/recipes/complexSearch?query=" + searchValue + "&addRecipeInformation=True&fillIngredients=True&number=2&apiKey=316e271bb0b045a7a09d60ffc6d3c9e7",
         dataType: "json",
         success: function (data) {
             for (i = 0; i < data.results.length; i++) {
@@ -105,11 +106,29 @@ function getRecipe(searchValue) {
                     var ingredientName = data.results[i].missedIngredients[j].name
                     var ingredientAmount = data.results[i].missedIngredients[j].amount + " " + data.results[i].missedIngredients[j].unitShort
 
-
                     var ingredientEl = document.createElement("p");
+                    ingredientEl.setAttribute("id", ingredientName)
+
                     ingredientEl.append(ingredientAmount + " " + ingredientName)
                     ingredientDiv.append(ingredientEl)
                     recipeInfoDiv.append(ingredientDiv)
+
+                    var localIngredients = JSON.parse(window.localStorage.getItem('Ingredients'));
+                    for (l = 0; l < localIngredients.length; l++) {
+
+                        
+                        
+                        if (ingredientName === localIngredients[l]) {
+                            var something = document.getElementById(ingredientName)
+                            console.log(something)
+                            something.classList.add("hasIngredient")
+                            console.log("have " + ingredientName);
+                        } else {
+                            console.log("dont have " + ingredientName);
+                        }
+                    }
+                    
+
                 }
 
                 //recipe method button and unhide on click
@@ -145,6 +164,7 @@ function getRecipe(searchValue) {
                 $(".btn-recipe").on("click", function() {
                     var btnId = document.getElementById(this.id + "method");
                         btnId.classList.remove("hide")
+
                 })
 
 

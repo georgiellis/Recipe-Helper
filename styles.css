@@ -13,6 +13,7 @@ margin-bottom: 0 !important;
     background-color: lightgrey;
     padding-top: 10px;
     column-count: 3;
+    margin-bottom: 10px;
 }
 .text-preptime {
     float: left;
@@ -26,6 +27,9 @@ margin-bottom: 0 !important;
 }
 .subheadingdiv-style {
     display: flex;
+}
+.hasIngredient {
+    color: green;
 }
 /*recipe search image style */
 .recipeImgStyles {
