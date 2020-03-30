@@ -1,6 +1,11 @@
 /*Recipe Search Page Styles */
+.search-intro {
+text-align: center;
+}
+
 .result-div-styles {
 border: 1px solid black;
+margin-bottom: 0 !important;
 }
 
 .search-body {
@@ -12,12 +17,12 @@ border: 1px solid black;
     background-color: lightgrey;
     padding-top: 10px;
     column-count: 3;
+    margin-bottom: 10px;
 }
 .text-preptime {
     float: left;
 }
 .text-cookingtime {
-    float: center;
     padding-right: 15%;
     padding-left: 15%;
 }
@@ -27,12 +32,27 @@ border: 1px solid black;
 .subheadingdiv-style {
     display: flex;
 }
-    /*recipe search image style */
+.hasIngredient {
+    color: green;
+}
+/*recipe search image style */
 .recipeImgStyles {
     border-radius: 15px;
     margin-top: 20px;
     width: 100%;
 }
 .hide {
-    display:none;
+    display: none !important;
+}
+/*recipe method styles */
+.method-style {
+    text-align: center;
+    border: 1px black solid;
+    margin-bottom: 20px;
+    padding: 10px;
+    padding-bottom: 10px;
+}
+.instruction-div-styles {
+    padding-right: 10px;
+    padding-left: 10px;
 }
